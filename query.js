@@ -2,7 +2,7 @@ const _ = require('underscore')
 const co = require('co')
 const colors = require('colors')
 const debug = require('debug')('backup:query');
-const mydb = require('../mycli/mydb')
+const mydb = require('./mydb')
 
 const MODEL_BASE = '../models'
 const CACHE = {}

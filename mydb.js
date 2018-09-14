@@ -4,7 +4,7 @@ var nconf = require('nconf');
 const _ = require('underscore');
 const path = require('path')
 
-const file_path = path.join(__dirname, '/../cli_config.json')
+const file_path = path.join(__dirname, 'cli_config.json')
 
 nconf.file({
     'file': file_path
