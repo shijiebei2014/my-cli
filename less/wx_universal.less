@@ -1,0 +1,215 @@
+//lessc less/wx_universal.less client/assets/css/flow/wx_universal.css --clean-css="advanced"
+//cd /Users/zhq/workspace/ts && gulp wless
+@containers: wf_business;
+@darkGray: #333;
+@gray: #666;
+@lightGray: #999;
+@lighterGray: #ccc;
+@red: #f66 !important;
+@blue: #54c7fc !important;
+// @green: #44db5e !important;
+@green: #62d1ca !important;
+//字体
+@fontSise: 12, 14, 16, 18, 20, 24;
+@hAligns: "left", "center", "right";
+//按钮mixin
+.modelButtonStyle() {
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    margin: 0 auto;
+    height: 44px;
+    line-height: 44px;
+}
+.buttonStyle() {
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    width: 80%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+}
+.miniStyle(@hei) {
+    min-height: @hei;
+    //height: @hei;
+} 
+/*#font*/
+.generate-columns(24);
+.generate-columns(@n, @i: 12) when(@i =< @n) {
+  .font-@{i} {
+    font-size: e(%("%dpx !important", @i));
+  }
+  .generate-columns(@n, (@i + 2));
+}
+/*#font*/
+/**text-align**/
+.loopTA(@counter) when (@counter > 0) {
+    .loopTA((@counter - 1));    // next iteration
+    @temp: extract(@hAligns, @counter);
+    @tmp: e(%(".text-%s", @temp));
+    @{tmp} {
+        text-align: e(@temp);
+    }
+}
+.loopTA(length(@hAligns));
+/**text-align**/
+/**颜色**/
+.black {
+    color: @darkGray;
+}
+.dark-gray {
+    color: @darkGray;
+}
+.blue {
+    color: @blue !important;
+}
+.red {
+    color: @red;
+}
+.green {
+    color: @green;
+}
+.gray {
+    color: @gray;
+}
+.title {
+    color: @lightGray;
+}
+.light-gray {
+    color: @lightGray;
+}
+.lighter-gray {
+    color: @lighterGray;
+}
+.content {
+    color: @gray;
+}
+/**按钮**/
+.draft {
+    background-color: @blue;
+    border-color: @blue;
+    
+    .buttonStyle();
+}
+.forward {
+    background-color: @green;
+    border-color: @green;
+    .buttonStyle();
+}
+.backward {
+    background-color: @red;
+    border-color: @red;
+    .buttonStyle();
+}
+.sure {
+    background-color: @blue;
+    border-color: @blue;
+    
+    .modelButtonStyle();
+}
+.cancel {
+    background-color: white;
+    border-color: white;
+    
+    .modelButtonStyle();
+    color: @lightGray;
+}
+/**按钮**/
+/**text-overflow**/
+.text_overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ellipsis{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.newline {
+    white-space: normal;
+    word-break: break-all;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 10px;
+}
+.hide {
+    display: none;
+}
+.list-group-distance {
+    margin-top: 10px;
+}
+.list-group .item-inner {
+    margin-left: 0 !important;
+}
+.list-group .item {
+    background-color: #f4f4f4 !important;
+    color: @blue !important;
+    font-size: 14px !important;
+    padding: 5px 15px 5px 0;
+    width: 100%;
+}
+.sumInfo {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+	border-radius: 100px;
+    background-color: #f0d3a9;
+}
+.sumInfo span{
+    font-size: 14px;
+    color: #ffb142;
+    margin-left: 15px;
+}
+.loopContainer(@counter) when (@counter > 0) {
+    .loopContainer((@counter - 1));    // next iteration
+    @container: extract(@containers, @counter);
+    // @container: e(%(".text-%s", @temp));
+    #@{container} .mini-inner {
+        padding: 0 15px 0 0;
+        .miniStyle(20px)
+    }
+    #@{container} .mini-content {
+        .miniStyle(20px)
+    }
+}
+.loopContainer(length(@containers));
+.icon-Group {
+    margin: 0 5px 0 0;
+}
+#wf_three .noline .item-inner::after, #main_form .noline .item-inner::after{
+    height: 1 ;
+}
+#wf_three .noline .noneline .item-inner::after, #main_form .noline .noneline .item-inner::after{
+    height: 0 ;
+}
+#wf_three .lightline .item-inner::after, #main_form .lightline .item-inner::after{
+    background-color: #eee;
+}
+.popup .toolbar-inner {
+    padding: 0;
+}
+/* #form_table .mini-inner{
+    padding: 0 15px 0 0;
+    .miniStyle(30px)
+}
+#form_table .mini-content {
+    .miniStyle(30px)
+} */
+

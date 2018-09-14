@@ -1,0 +1,132 @@
+//npm install less less-plugin-clean-css
+//lessc less/wf_form_edit.less client/assets/css/flow/wf_form_edit.css --clean-css="advanced"
+@import "font.less"; //字体样式
+@import "color.less"; //颜色样式
+@import "btn.less"; //按钮样式
+#form_pd label {
+  text-align: right;
+
+}
+.breadcrumb li {
+  margin-left: 30px;
+}
+.breadcrumb .line {
+  display: inline-block;
+  width: 20px;
+  height: 5px;
+  margin-left: 5px;
+}
+.addRange {
+  cursor: pointer;
+}
+.btn-toolbar a {
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  width: 120px;
+	height: 20px;
+	margin-left: 40px;
+	font-size: 18px;
+	padding: 10px;
+	border-radius: 4px
+}
+#treeContainer .expandAll, #treeContainer .collapseAll {
+  cursor: pointer;
+}
+// datatable css
+div.dataTables_length label {
+  font-size: 14px;
+}
+
+div.dataTables_info {
+  font-size: 14px;
+}
+
+.dataTables_paginate a, .dataTables_paginate ul>li>a {
+  width: 24px;
+  height: 18px;
+  line-height: 18px;
+}
+
+#form_pd label,#frmProcessDefine label,#frmProcessDefinePlatform label {
+	max-width: 120px;
+	width: 10%;
+	color: #666
+}
+
+#form_pd .controls input[type=text],#frmProcessDefine .controls input[type=text],#frmProcessDefinePlatform .controls input[type=text] {
+	height: 22px
+}
+
+.well:after {
+	height: 0!important
+}
+
+.label-switch input[type=checkbox] {
+	display: none
+}
+
+.label-switch .checkbox {
+	width: 52px;
+	border-radius: 16px;
+	box-sizing: border-box;
+	height: 32px;
+	background: #e5e5e5;
+	z-index: 0;
+	margin: 0;
+	padding: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s
+}
+
+.label-switch .checkbox:after,.label-switch .checkbox:before {
+	content: ' ';
+	height: 28px;
+	background: #fff;
+	position: absolute;
+	top: 2px;
+	left: 2px
+}
+
+.label-switch input[type=checkbox]:checked+.checkbox:before {
+	-webkit-transform: scale(0);
+	transform: scale(0)
+}
+
+.label-switch .checkbox:before {
+	width: 48px;
+	border-radius: 16px;
+	box-sizing: border-box;
+	z-index: 1;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transform: scale(1);
+	transform: scale(1)
+}
+
+.label-switch input[type=checkbox]:checked+.checkbox:after {
+	-webkit-transform: translateX(22px);
+	transform: translateX(22px)
+}
+
+.label-switch .checkbox:after {
+	width: 28px;
+	border-radius: 28px;
+	z-index: 2;
+	box-shadow: 0 2px 5px rgba(0,0,0,.4);
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s
+}
+
+.label-switch input[type=checkbox]:checked+.checkbox {
+	background-color: #54C7FC
+}

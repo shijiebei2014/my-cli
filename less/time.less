@@ -1,0 +1,125 @@
+//lessc less/time.less client/assets/css/flow/time.css --clean-css="advanced"
+.filter div[class*="col-"] {
+  background: #fff;
+  text-align: center;
+  color: #666;
+  border: 1px solid #666;
+  padding: 5px;
+}
+.filter .row {
+  margin-bottom: 10px;
+} 
+.selected_state{
+  border: 1px solid rgb(0, 0, 0) !important; 
+  border-radius: 0px; color: rgb(0, 0, 0) !important;
+  background-color: rgb(73, 143, 225) !important;
+}
+.ellipsis{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #777;
+  border-radius: 10px;
+}
+
+/* 从framework7.material.css抄过来的*/
+i.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-style: normal;
+  position: relative;
+}
+i.icon.icon-plus {
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D'%23FFFFFF'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%20width%3D'24'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M19%2013h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'%2F%3E%3Cpath%20d%3D'M0%200h24v24H0z'%20fill%3D'none'%2F%3E%3C%2Fsvg%3E");
+}
+.ripple,
+.floating-button,
+a.link,
+a.item-link,
+.button,
+.modal-button,
+.tab-link,
+.label-radio,
+.label-checkbox,
+.actions-modal-button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.floating-button {
+  color: #fff;
+  position: fixed/* absolute */;
+  pointer-events: auto;
+  right: 16px;
+  bottom: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  z-index: 1500;
+  overflow: hidden;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: rgb(80,227,194);
+}
+
+.hide {
+  display: none;
+}
+
+/**颜色**/
+.black {
+  color: #333;
+}
+.blue {
+  color: #54c7fc !important;
+}
+.red {
+  color: #f66;
+}
+.green {
+  color: #44db5e;
+}
+.gray {
+  color: #ccc;
+}
+.title {
+  color: #999;
+}
+.content {
+  color: #666;
+}
+/**text-overflow**/
+.text_overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,9 @@
+//字体
+@fontSise: 12, 14, 16, 18, 20, 24;
+.generate-columns(24);
+.generate-columns(@n, @i: 12) when(@i =< @n) {
+  .font-@{i} {
+    font-size: e(%("%dpx !important", @i));
+  }
+  .generate-columns(@n, (@i + 2));
+}

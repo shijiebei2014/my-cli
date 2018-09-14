@@ -1,0 +1,49 @@
+//npm install less less-plugin-clean-css
+//lessc less/batch_list.less client/assets/css/flow/batch_list.css --clean-css="advanced"
+@import "font.less"; //字体样式
+@import "color.less"; //颜色样式
+@import "btn.less"; //按钮样式
+@font-14: 14; //字体大小
+
+.process_code {
+    font-size: @font-14;
+    text-align: left;padding: 10px 0;
+    color: @darkGray;
+    cursor: pointer;
+}
+
+.process_code_active {
+    font-size: @font-14;
+    text-align: left;padding: 10px 0;
+    background-color: @lightBlue;
+    border-right: 4px solid @blue;
+}
+
+.process_code_active .process_code {
+    color: @blue;
+}
+
+.process_code_unactive {
+    font-size: @font-14;
+    text-align: left;padding: 10px 0;
+    background-color: white;
+}
+
+.process_code_unactive .process_code{
+    color: @darkGray;
+}
+
+#flow_report_content a.paginate_active {
+    color: white !important;
+    background-color: @blue;
+}
+
+#process_codes td {
+    border-top: 0;
+    white-space: nowrap;
+}
+
+#toast {
+    height: 80px !important;
+    margin-left: 0 !important;
+}

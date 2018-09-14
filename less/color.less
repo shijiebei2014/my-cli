@@ -1,0 +1,30 @@
+//颜色
+@colors: "tableGray", "darkGray", "gray", "lightGray", "red", "blue", "lightBlue", "green", "darkGreen", "orange", "lightGreen", "roleGreen", "lightPurple", "purple";
+@tableGray: #f4f4f4;
+@darkGray: #333;
+@gray: #666;
+@lightGray: #999;
+@red: #f66 !important;
+@blue: #54c7fc !important;
+@lightBlue: #ECF9FF !important;
+@green: #62d1ca !important;
+@darkGreen: #62D1CA !important;
+@orange: #FFB142 !important;
+@lightGreen: #CFD90D !important;
+@roleGreen: #51DF24 !important;
+@lightPurple: #DF83FC !important;
+@purple: #8081F1 !important;
+
+.loopFoot(@counter) when (@counter > 0) {
+    .loopFoot((@counter - 1));    // next iteration
+    @temp: extract(@colors, @counter);
+    @tmp: e(%(".%s", @temp));
+    @bg: e(%(".bg%s", @temp));
+    @{tmp} {
+        color: @@temp;
+    }
+    @{bg} {
+        background-color: @@temp;
+    }
+}
+.loopFoot(length(@colors));

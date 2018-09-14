@@ -1,0 +1,334 @@
+//npm install less less-plugin-clean-css
+//lessc less/universal.less client/assets/css/flow/universal.css --clean-css="advanced"lessc less/universal.less client/assets/css/flow/universal.css --clean-css="advanced"
+@fontWeight: normal !important;
+@opacity: 1 !important;
+//颜色
+@tableGray: #f4f4f4;
+@darkGray: #333;
+@gray: #666;
+@lightGray: #999;
+@red: #f66 !important;
+@blue: #54c7fc !important;
+@green: #62d1ca !important;
+//字体
+@fontSise: 12, 14, 16, 18, 20, 24;
+//modal
+@modalFoots: "#ihModalAttachment", "#ihModalRefPis", "#ihModalCheckin", "#ihModalTp", "#ihModalSelPosition", "#ihModalCCUser", "#ihModalFreeUser", "#ihModalComment";
+//按钮mixin
+.buttonStyle() {
+    font-size: 14px;
+    padding: 5px 20px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+//字体mixin
+.noraml-mixin() {
+    font-weight: @fontWeight;
+    opacity: @fontWeight
+}
+/*#color*/
+.dark-gray { //深灰
+    color: @darkGray !important;
+    .noraml-mixin()
+}
+.gray { //灰色
+    color: @gray !important;
+    .noraml-mixin()
+}
+.light-gray { //浅灰
+    color: @lightGray !important;
+    .noraml-mixin()
+}
+.blue { //蓝色
+    color: @blue;
+}
+.green { //绿色
+    color: @green;
+}
+.red { //红色
+    color: @red;
+}
+/*#color*/
+/*#button*/
+.cancel {
+    background-color: @tableGray;
+    color: #666;
+    .buttonStyle();
+}
+.draft {
+    background-color: @blue;
+    color: white;
+    .buttonStyle();
+}
+.forward {
+    background-color: @green;
+    color: white;
+    .buttonStyle();
+}
+.backward {
+    background-color: @red;
+    color: white;
+    .buttonStyle();
+}
+/*#button*/
+/*#font*/
+.generate-columns(24);
+.generate-columns(@n, @i: 12) when(@i =< @n) {
+  .font-@{i} {
+    font-size: e(%("%dpx !important", @i));
+  }
+  .generate-columns(@n, (@i + 2));
+}
+/*#font*/
+/*#modal*/
+.loopFoot(@counter) when (@counter > 0) {
+    .loopFoot((@counter - 1));    // next iteration
+    @temp: extract(@modalFoots, @counter);
+    @tmp: e(%("%s .modal-header a", @temp));
+    @{tmp} {
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+    }
+}
+.loopFoot(length(@modalFoots));
+
+.loopHead(@counter) when (@counter > 0) {
+    .loopHead((@counter - 1));    // next iteration
+    @temp: extract(@modalFoots, @counter);
+    @tmp: e(%("%s .modal-header", @temp));
+
+    @{tmp} {
+        padding: 5px;
+        margin-top: 0;
+        min-width: 76px;
+        text-align: center;
+    }
+}
+.loopHead(length(@modalFoots));
+/*#modal*/
+/*#流程图相关*/
+#form_header .cur_box1_2 {
+    margin: 0 auto;
+    width: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid #54c7fc;
+}
+#form_header .cur_box2_2 {
+    margin: 0 auto;
+    width: 40px;
+    height: 20px;
+    background-color: #54c7fc;
+    text-align: center;
+    color: white;
+}
+#form_header .cur_box3_2 {
+    margin: 0 auto;
+    width: 0;
+    border-top: 10px solid #54c7fc;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#form_header .cur_box4_2 {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+    color: #54c7fc
+}
+#form_header .cur_box1_1 {
+    margin: 0 auto;
+    width: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    /*border-bottom: 10px solid #a1e1ff;*/
+    border-bottom: 10px solid #54c7fc;
+}
+#form_header .cur_box2_1 {
+    margin: 0 auto;
+    width: 40px;
+    height: 20px;
+    /*background-color: #a1e1ff;*/
+    background-color: #54c7fc;
+    text-align: center;
+    color: white;
+}
+#form_header .cur_box3_1 {
+    margin: 0 auto;
+    width: 0;
+    /*border-top: 10px solid #a1e1ff;*/
+    border-top: 10px solid #54c7fc;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#form_header .cur_box4_1 {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+    /*color: #a1e1ff;*/
+    color: #54c7fc;
+}
+#form_header .box1 {
+    margin: 0 auto;
+    width: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid #eee;
+}
+#form_header .box2 {
+    margin: 0 auto;
+    width: 40px;
+    height: 20px;
+    background-color: #eee;
+    text-align: center;
+    color: white;
+}
+#form_header .box3 {
+    margin: 0 auto;
+    width: 0;
+    border-top: 10px solid #eee;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#form_header .box4 {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+    color: #b2b2b2
+}
+/*#流程图相关*/
+.v-dividing-line {
+    width: 1px;
+    height: 20px;
+    background-color: @lightGray !important;
+    margin-top: 8px;
+}
+.accordion-group {
+    border: none;
+}
+.inline {
+    display: inline-block;
+    margin-right: 60px;
+}
+.accordion-heading,
+.accordion-body {
+    background-color: #f4f4f4;
+}
+#tblHistoryTasks td.gray {
+    vertical-align: middle;
+}
+
+#tblAttachments,
+#tablRef_pis,
+.table_baoxiao,
+#show_tp_container,
+#show_checkin_container table,
+#about_cc_users table {
+    background-color: #f4f4f4;
+}
+
+#tblAttachments thead th,
+#tablRef_pis thead th,
+.table_baoxiao thead th,
+#show_tp_container thead th,
+#tblSignComments thead th {
+    color: #666;
+    font-size: 14px;
+}
+
+#tblAttachments tbody tr,
+#tablRef_pis tbody tr,
+.table_baoxiao tbody tr,
+#show_tp_container tbody tr,
+#tblSignComments tbody tr {
+    color: #333;
+    font-size: 14px;
+}
+
+#ihModalAttachment,
+#ihModalComment {
+    width: 400px;
+    margin-left: -200px;
+}
+/*#打印相关*/
+.sel_position:hover {
+    text-decoration: underline;
+}
+#tablePisList thead th {
+    background-color: #fafafa;
+}
+#tablePisList td {
+    color: #666;
+    font-size: 12px;
+    background-color: white;
+}
+#tablePisList_paginate .paginate_button {
+    color: @blue;
+    border-radius: 2px;
+    border: solid 1px @blue;
+    background-color: #fff;
+}
+#tablePisList_paginate .paginate_active {
+    color: #cccccc !important;
+    border-radius: 2px;
+    border: solid 1px #cccccc;
+    background-color: #fff;
+}
+/*#打印相关*/
+/*#会签意见相关*/
+.triangle-right {
+    position: relative;
+    padding: 5px;
+    margin: 0em 0 0em;
+    color: #fff;
+    background: rgba(186, 186, 186, 0.5);
+    /* css3 */
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background: -moz-linear-gradient(#2e88c4, #075698);
+    background: -o-linear-gradient(#2e88c4, #075698);
+    background: linear-gradient(#2e88c4, #075698);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 8px;
+}
+.triangle-right.right {
+    margin-right: 50px;
+    background: rgba(186, 186, 186, 0.5)
+}
+.triangle-right:after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    border-width: 0 20px 20px 0;
+    border-style: solid;
+    border-color: rgba(186, 186, 186, 0.5) transparent;
+    display: block;
+    width: 0;
+}
+.triangle-right.right:after {
+    top: 12px;
+    right: -20px;
+    bottom: auto;
+    left: auto;
+    border-width: 0 0 15px 20px;
+    /* 控制三角形的长短 */
+    border-color: transparent rgba(186, 186, 186, 0.5);
+}
+.triangle-right.left {
+    margin-left: 0px;
+    background: #e3f6fe;
+}
+.triangle-right.left:after {
+    top: 5px;
+    left: -15px;
+    /* value = - border-left-width - border-right-width */
+    bottom: auto;
+    border-width: 0 20 15px 0;
+    /* vary these values to change the angle of the vertex */
+    border-color: transparent #e3f6fe;
+}
+/*#会签意见相关*/
